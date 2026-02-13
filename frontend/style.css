@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #050505;
+    --surface: #121212;
+    --moonlight: #f5f5f7;
+    --silver-bright: #e2e2e2;
+    --silver-dim: #8e8e93;
+    --border-moon: rgba(255, 255, 255, 0.15);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    background-image: radial-gradient(circle at 50% -20%, #222222, var(--bg-dark) 80%);
+    color: var(--moonlight);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    width: 100%;
+    padding: 3.5rem 0;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.8rem;
+    font-weight: 300;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--moonlight);
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+    margin: 0;
+}
+
+#stats {
+    font-size: 0.9rem;
+    color: var(--silver-dim);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.form-container {
+    background: var(--surface);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-moon);
+    width: 95%;
+    max-width: 900px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.9);
+    align-items: center;
+}
+
+.search-container {
+    width: 95%;
+    max-width: 900px;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+input, select {
+    background: #000000;
+    border: 1px solid #2c2c2e;
+    padding: 14px;
+    border-radius: 8px;
+    color: var(--moonlight);
+    outline: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    min-width: 0;
+}
+
+input {
+    flex: 2;
+}
+
+select {
+    flex: 1;
+    cursor: pointer;
+}
+
+input:focus, select:focus {
+    border-color: var(--silver-dim);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+button#add-btn {
+    flex: 0 0 auto;
+    background: linear-gradient(145deg, #ffffff, #b0b0b0);
+    border: none;
+    padding: 0 30px;
+    height: 48px;
+    border-radius: 8px;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+button#add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    filter: brightness(1.1);
+}
+
+#book-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 35px;
+    width: 95%;
+    max-width: 1200px;
+    padding-bottom: 80px;
+}
+
+.book-card {
+    background: var(--surface);
+    border-radius: 10px;
+    border: 1px solid var(--border-moon);
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.book-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--silver-bright);
+    box-shadow: 0 25px 50px rgba(0,0,0,1);
+}
+
+.book-cover {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.6);
+    transition: 0.6s ease;
+}
+
+.book-card:hover .book-cover {
+    filter: grayscale(0%) brightness(1);
+}
+
+.category-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: var(--silver-bright);
+    border: 1px solid var(--border-moon);
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.book-info {
+    padding: 20px;
+    background: #121212;
+    border-top: 1px solid var(--border-moon);
+}
+
+.book-info h3 { 
+    margin: 0; 
+    font-size: 1.1rem; 
+    color: var(--moonlight);
+    font-weight: 600;
+}
+
+.book-info p { 
+    color: var(--silver-dim); 
+    font-size: 0.85rem; 
+    margin-top: 6px;
+    font-weight: 300;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid var(--border-moon);
+    color: var(--moonlight);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #ff3b30;
+    color: white;
+    border-color: #ff3b30;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-dark); }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--silver-dim); }

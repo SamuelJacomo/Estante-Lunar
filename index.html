@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Estante Mágica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Minha Estante</h1>
+        <p id="stats">Carregando coleção...</p>
+    </header>
+
+    <div class="form-container">
+        <input type="text" id="title" placeholder="Título (ex: Sandman)" required>
+        <input type="text" id="author" placeholder="Autor" required>
+        
+        <select id="category">
+            <option value="Livro">📚 Livro</option>
+            <option value="HQ">🎨 HQ / Manga</option>
+        </select>
+
+        <button id="add-btn">Adicionar</button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="🔍 Filtrar sua coleção...">
+    </div>
+
+    <div id="book-list"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
